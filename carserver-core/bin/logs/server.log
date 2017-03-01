@@ -1,0 +1,12 @@
+2017.03.01 at 16:17:32.539 CST INFO  com.lenovo.newdevice.car.server.Launcher 15 main - Starting application.
+2017.03.01 at 16:17:34.453 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 43 createSession - clientID:CarListManager-1
+2017.03.01 at 16:17:34.453 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 43 createSession - clientID:MessageBroker-1
+2017.03.01 at 16:17:34.459 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 43 createSession - clientID:MessageBroadcaster-1
+2017.03.01 at 16:17:34.484 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 62 createProducer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 16:17:34.486 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 54 createConsumer - creating Topic:Car-Login-ptp
+2017.03.01 at 16:17:34.487 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 54 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 16:17:34.489 CST INFO  com.lenovo.newdevice.car.server.CarController$ServiceKeeper 89 onComponentStartResult - onComponentStartResult:BroadcasterImpl-true
+2017.03.01 at 16:17:34.496 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 62 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 16:17:34.497 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 54 createConsumer - creating Topic:Car-Logout-ptp
+2017.03.01 at 16:17:34.497 CST INFO  com.lenovo.newdevice.car.server.CarController$ServiceKeeper 89 onComponentStartResult - onComponentStartResult:MessageBrokerImpl-true
+2017.03.01 at 16:17:34.499 CST INFO  com.lenovo.newdevice.car.server.CarController$ServiceKeeper 89 onComponentStartResult - onComponentStartResult:ClientManagerImpl-true
