@@ -4,6 +4,8 @@ import com.lenovo.newdevice.car.server.message.MessageHelper;
 import com.lenovo.newdevice.car.server.network.ClientManager;
 import com.lenovo.newdevice.car.server.provider.NetServerSettings;
 import com.lenovo.newdevice.carserver.api.model.Car;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import javax.jms.*;
@@ -15,6 +17,8 @@ import java.util.List;
  * Created @2017/2/27 14:08
  */
 @Service
+@NoArgsConstructor
+@Setter
 public class ClientManagerImpl extends MQBasedActivity implements ClientManager {
 
     private final List<Car> CARS = new ArrayList<>();

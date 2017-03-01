@@ -4,4 +4,5 @@ com\lenovo\newdevice\car\server\network\impl\Consumer$1.class
 com\lenovo\newdevice\car\server\network\impl\Consumer.class
 com\lenovo\newdevice\car\server\network\impl\BroadcastReceiverTest.class
 com\lenovo\newdevice\car\server\network\impl\TestUtils.class
+com\lenovo\newdevice\car\server\network\BrokerPropTest.class
 com\lenovo\newdevice\car\server\network\impl\BroadcasterTest.class

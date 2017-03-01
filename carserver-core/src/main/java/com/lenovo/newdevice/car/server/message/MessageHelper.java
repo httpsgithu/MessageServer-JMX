@@ -27,11 +27,34 @@ public class MessageHelper {
         return null;
     }
 
-    public static BytesMessage createByteMessage(Session session, BytesSerializable serializable) {
+    public static BytesMessage createByteMessage(@NonNull Session session, @NonNull BytesSerializable serializable) {
         try {
             BytesMessage bytesMessage = session.createBytesMessage();
             bytesMessage.writeBytes(serializable.toBytes());
             return bytesMessage;
+        } catch (JMSException e) {
+            sLogger.error(e);
+        }
+        return null;
+    }
+
+
+    public static BytesMessage constructByteMessage(@NonNull Session sessions, @NonNull BytesSerializable serializable) {
+        try {
+            BytesMessage out = sessions.createBytesMessage();
+            out.writeBytes(serializable.toBytes());
+            return out;
+        } catch (JMSException e) {
+            sLogger.error(e);
+        }
+        return null;
+    }
+
+    public static BytesMessage constructByteMessage(@NonNull Session sessions, @NonNull String src) {
+        try {
+            BytesMessage out = sessions.createBytesMessage();
+            out.writeBytes(src.getBytes());
+            return out;
         } catch (JMSException e) {
             sLogger.error(e);
         }

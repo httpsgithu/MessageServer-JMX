@@ -17,4 +17,9 @@
 
     <bean id="message-broadcast-receiver-register"
           class="com.lenovo.newdevice.car.server.network.impl.BroadcastReceiverRegister"/>
+
+    <bean id="broker" class="org.apache.activemq.xbean.BrokerFactoryBean">
+        <property name="config" value="classpath:activemq.xml"/>
+        <property name="start" value="true"/>
+    </bean>
 </beans>

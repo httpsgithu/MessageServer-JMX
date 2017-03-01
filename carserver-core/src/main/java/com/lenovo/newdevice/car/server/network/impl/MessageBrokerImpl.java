@@ -6,9 +6,9 @@ import com.lenovo.newdevice.car.server.provider.NetServerSettings;
 import com.lenovo.newdevice.carserver.api.model.Car;
 import com.lenovo.newdevice.carserver.api.model.PTPMessageContainer;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
-import org.apache.activemq.command.ActiveMQBytesMessage;
 import org.springframework.stereotype.Service;
 
 import javax.jms.*;
@@ -17,6 +17,7 @@ import javax.jms.*;
  * Created @2017/2/28 10:56
  */
 @Service
+@NoArgsConstructor
 public class MessageBrokerImpl extends MQBasedActivity implements MessageBroker {
 
     @Getter
@@ -64,13 +65,12 @@ public class MessageBrokerImpl extends MQBasedActivity implements MessageBroker 
 
     private void onIncomingMessage(Message message) {
         String content = MessageHelper.extractContentString((BytesMessage) message);
-        getLogger().info(content);
         PTPMessageContainer container = PTPMessageContainer.from(content);
         getLogger().info(container);
         Car target = container.getTarget();
-        Message out = new ActiveMQBytesMessage();
-        send(out, target);
+        send(MessageHelper.constructByteMessage(sharedSession, container.getContent()), target);
     }
+
 
     @Override
     public void onDestroy() {

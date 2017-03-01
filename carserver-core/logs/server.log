@@ -278,3 +278,119 @@
 2017.03.01 at 16:17:16.382 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 69 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
 2017.03.01 at 16:17:16.382 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 39 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
 2017.03.01 at 16:17:16.394 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 68 closeConnection - closing connection.
+2017.03.01 at 16:33:36.548 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 43 createSession - clientID:MessageBroadcaster-1
+2017.03.01 at 16:33:36.575 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 62 createProducer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 16:33:36.656 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 43 createSession - clientID:null
+2017.03.01 at 16:33:36.662 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 54 createConsumer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 16:33:36.679 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 68 closeConnection - closing connection.
+2017.03.01 at 16:33:36.716 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 43 createSession - clientID:MessageBroker-1
+2017.03.01 at 16:33:36.720 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 54 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 16:33:36.726 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 62 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 16:33:36.843 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 66 onIncomingMessage - {"target":{"uuid":"Android-XXXX"},"content":"Hello!"}
+2017.03.01 at 16:33:36.847 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 68 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
+2017.03.01 at 16:33:36.848 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 38 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
+2017.03.01 at 16:33:36.849 CST ERROR com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 43 send - javax.jms.IllegalStateException: The producer is closed
+2017.03.01 at 16:33:36.850 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 68 closeConnection - closing connection.
+2017.03.01 at 16:33:58.041 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 43 createSession - clientID:MessageBroadcaster-1
+2017.03.01 at 16:33:58.065 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 62 createProducer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 16:33:58.136 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 43 createSession - clientID:null
+2017.03.01 at 16:33:58.141 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 54 createConsumer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 16:33:58.159 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 68 closeConnection - closing connection.
+2017.03.01 at 16:33:58.208 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 43 createSession - clientID:MessageBroker-1
+2017.03.01 at 16:33:58.224 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 54 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 16:33:58.227 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 62 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 16:33:58.339 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 66 onIncomingMessage - {"target":{"uuid":"Android-XXXX"},"content":"Hello!"}
+2017.03.01 at 16:33:58.342 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 68 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
+2017.03.01 at 16:33:58.342 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 38 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
+2017.03.01 at 16:33:58.351 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 68 closeConnection - closing connection.
+2017.03.01 at 17:36:11.973 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroker-1
+2017.03.01 at 17:36:11.998 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 17:36:12.041 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 17:36:12.172 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 69 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
+2017.03.01 at 17:36:12.173 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 40 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
+2017.03.01 at 17:36:12.173 CST ERROR com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 45 send - javax.jms.IllegalStateException: The producer is closed
+2017.03.01 at 17:36:12.177 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 17:38:45.085 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroadcaster-1
+2017.03.01 at 17:38:45.109 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 17:38:45.175 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:null
+2017.03.01 at 17:38:45.182 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 17:38:45.197 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 17:38:45.238 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroker-1
+2017.03.01 at 17:38:45.247 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 17:38:45.252 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 17:38:45.373 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 69 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
+2017.03.01 at 17:38:45.374 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 40 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
+2017.03.01 at 17:38:45.375 CST ERROR com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 45 send - javax.jms.IllegalStateException: The producer is closed
+2017.03.01 at 17:38:45.376 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 17:39:22.534 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroadcaster-1
+2017.03.01 at 17:39:22.567 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 17:39:22.601 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:null
+2017.03.01 at 17:39:22.607 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 17:39:22.624 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 17:39:22.662 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroker-1
+2017.03.01 at 17:39:22.668 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 17:39:22.672 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 17:39:22.788 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 69 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
+2017.03.01 at 17:39:22.788 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 40 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
+2017.03.01 at 17:39:22.789 CST ERROR com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 45 send - javax.jms.IllegalStateException: The producer is closed
+2017.03.01 at 17:39:22.790 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 18:10:27.650 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroadcaster-1
+2017.03.01 at 18:10:27.671 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 18:10:27.702 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:null
+2017.03.01 at 18:10:27.711 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 18:10:27.750 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 18:10:27.779 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroker-1
+2017.03.01 at 18:10:27.793 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 18:10:27.798 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 18:10:27.947 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 69 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
+2017.03.01 at 18:10:27.948 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 40 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
+2017.03.01 at 18:10:27.948 CST ERROR com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 45 send - javax.jms.IllegalStateException: The producer is closed
+2017.03.01 at 18:10:27.952 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 18:11:06.660 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroadcaster-1
+2017.03.01 at 18:11:06.682 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 18:11:06.709 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:null
+2017.03.01 at 18:11:06.743 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 18:11:06.761 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 18:11:06.819 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroker-1
+2017.03.01 at 18:11:06.824 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 18:11:06.829 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 18:11:06.979 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 69 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
+2017.03.01 at 18:11:06.980 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 40 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
+2017.03.01 at 18:11:06.981 CST ERROR com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 45 send - javax.jms.IllegalStateException: The producer is closed
+2017.03.01 at 18:11:06.982 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 18:13:53.033 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroadcaster-1
+2017.03.01 at 18:13:53.059 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 18:13:53.156 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:null
+2017.03.01 at 18:13:53.167 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 18:13:53.204 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 18:13:53.325 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroker-1
+2017.03.01 at 18:13:53.357 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 18:13:53.364 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 18:13:53.572 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 69 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
+2017.03.01 at 18:13:53.574 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 40 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
+2017.03.01 at 18:13:53.574 CST ERROR com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 45 send - javax.jms.IllegalStateException: The producer is closed
+2017.03.01 at 18:13:53.577 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 18:15:23.242 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroadcaster-1
+2017.03.01 at 18:15:23.263 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 18:15:23.321 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:null
+2017.03.01 at 18:15:23.328 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 18:15:23.344 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 18:15:23.377 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroker-1
+2017.03.01 at 18:15:23.398 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 18:15:23.404 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 18:15:23.527 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 69 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
+2017.03.01 at 18:15:23.528 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 40 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
+2017.03.01 at 18:15:23.528 CST ERROR com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 45 send - javax.jms.IllegalStateException: The producer is closed
+2017.03.01 at 18:15:23.530 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 18:16:24.653 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroadcaster-1
+2017.03.01 at 18:16:24.676 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 18:16:24.719 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:null
+2017.03.01 at 18:16:24.732 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Broadcast
+2017.03.01 at 18:16:24.756 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.
+2017.03.01 at 18:16:24.798 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 47 createSession - clientID:MessageBroker-1
+2017.03.01 at 18:16:24.809 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 58 createConsumer - creating Topic:Car-Message-Sender-ptp
+2017.03.01 at 18:16:24.814 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 66 createProducer - creating Topic:Car-Message-Receiver-ptp
+2017.03.01 at 18:16:24.988 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 69 onIncomingMessage - PTPMessageContainer(target=Car(name=null, uuid=Android-XXXX), content=Hello!)
+2017.03.01 at 18:16:24.989 CST INFO  com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 40 send - Sending msg to:Car(name=null, uuid=Android-XXXX)
+2017.03.01 at 18:16:24.990 CST ERROR com.lenovo.newdevice.car.server.network.impl.MessageBrokerImpl 45 send - javax.jms.IllegalStateException: The producer is closed
+2017.03.01 at 18:16:24.994 CST INFO  com.lenovo.newdevice.car.server.network.impl.MQBasedActivity 72 closeConnection - closing connection.

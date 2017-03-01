@@ -1,16 +1,19 @@
 package com.lenovo.newdevice.car.server.application;
 
-import com.lenovo.newdevice.car.server.network.*;
+import com.lenovo.newdevice.car.server.network.BroadcastReceiver;
+import com.lenovo.newdevice.car.server.network.Broadcaster;
+import com.lenovo.newdevice.car.server.network.ClientManager;
+import com.lenovo.newdevice.car.server.network.MessageBroker;
 import com.lenovo.newdevice.car.server.network.impl.BroadcastReceiverRegister;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NonNull;
+import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created @2017/2/23 11:12
  */
 @AllArgsConstructor
+@NoArgsConstructor
+@Setter
 public class ContextImpl implements Context {
 
     @Getter

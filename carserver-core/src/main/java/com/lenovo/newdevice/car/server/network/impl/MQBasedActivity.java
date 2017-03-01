@@ -3,7 +3,9 @@ package com.lenovo.newdevice.car.server.network.impl;
 import com.lenovo.newdevice.car.server.network.BrokerDetector;
 import com.lenovo.newdevice.car.server.provider.NetServerSettings;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.Setter;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,6 +16,8 @@ import javax.jms.*;
 /**
  * Created @2017/2/28 13:01
  */
+@NoArgsConstructor
+@Setter
 class MQBasedActivity {
 
     @Getter

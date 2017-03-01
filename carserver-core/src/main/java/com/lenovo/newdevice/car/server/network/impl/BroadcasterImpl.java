@@ -3,6 +3,7 @@ package com.lenovo.newdevice.car.server.network.impl;
 import com.lenovo.newdevice.car.server.network.Broadcaster;
 import com.lenovo.newdevice.car.server.provider.NetServerSettings;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 import javax.jms.JMSException;
@@ -13,6 +14,7 @@ import javax.jms.Session;
 /**
  * Created @2017/2/28 12:09
  */
+@NoArgsConstructor
 public class BroadcasterImpl extends MQBasedActivity implements Broadcaster {
 
     @Getter
