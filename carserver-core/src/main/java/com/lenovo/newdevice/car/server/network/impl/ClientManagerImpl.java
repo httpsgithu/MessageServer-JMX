@@ -2,7 +2,6 @@ package com.lenovo.newdevice.car.server.network.impl;
 
 import com.lenovo.newdevice.car.server.message.MessageHelper;
 import com.lenovo.newdevice.car.server.network.ClientManager;
-import com.lenovo.newdevice.car.server.provider.NetServerSettings;
 import com.lenovo.newdevice.carserver.api.model.Car;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,10 +25,6 @@ public class ClientManagerImpl extends MQBasedActivity implements ClientManager 
     private Session session;
     private MessageConsumer consumer1, consumer2;
 
-    public ClientManagerImpl(NetServerSettings serverSettings) {
-        super(serverSettings);
-    }
-
     @Override
     public boolean onStart() {
         try {
@@ -37,7 +32,7 @@ public class ClientManagerImpl extends MQBasedActivity implements ClientManager 
             consumer1 = createConsumer(session, getServerSettings().getCarLoginTopic(), this::onLoginMessage);
             consumer2 = createConsumer(session, getServerSettings().getCarLogoutTopic(), this::onLogoutMessage);
         } catch (JMSException e) {
-            getLogger().error(e);
+            getLogger().error("onStart", e);
             return false;
         }
         return true;
@@ -64,7 +59,7 @@ public class ClientManagerImpl extends MQBasedActivity implements ClientManager 
     }
 
     private void onRequestLogin(Car car) {
-        getLogger().info(car);
+        getLogger().info(car.toString());
         synchronized (CARS) {
             CARS.remove(car);
             CARS.add(car);
@@ -72,7 +67,7 @@ public class ClientManagerImpl extends MQBasedActivity implements ClientManager 
     }
 
     private void onRequestLogout(Car car) {
-        getLogger().info(car);
+        getLogger().info(car.toString());
         synchronized (CARS) {
             CARS.remove(car);
         }

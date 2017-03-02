@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static com.lenovo.newdevice.car.server.network.impl.TestUtils.println;
+import static com.lenovo.newdevice.car.server.TestUtils.println;
 import static org.junit.Assert.assertTrue;
 
 /**

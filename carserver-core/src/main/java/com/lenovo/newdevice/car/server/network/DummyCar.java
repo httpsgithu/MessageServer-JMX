@@ -1,7 +1,7 @@
 package com.lenovo.newdevice.car.server.network;
 
 import com.lenovo.newdevice.car.server.message.MessageHelper;
-import com.lenovo.newdevice.car.server.provider.NetServerSettings;
+import com.lenovo.newdevice.car.server.provider.NetWorkSettings;
 import com.lenovo.newdevice.carserver.api.model.Car;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,14 +20,14 @@ public class DummyCar {
     @Getter
     private String carName;
 
-    private NetServerSettings serverSettings;
+    private NetWorkSettings serverSettings;
 
     protected static transient ConnectionFactory factory;
     protected transient Connection connection;
     protected transient Session session;
     protected transient MessageProducer producer;
 
-    public DummyCar(NetServerSettings serverSettings) throws JMSException {
+    public DummyCar(NetWorkSettings serverSettings) throws JMSException {
         this.serverSettings = serverSettings;
         factory = new ActiveMQConnectionFactory(serverSettings.getBrokerUrl());
         connection = factory.createConnection();
@@ -44,7 +44,7 @@ public class DummyCar {
 
     public static void main(String... args) {
         try {
-            DummyCar car = new DummyCar(new NetServerSettings());
+            DummyCar car = new DummyCar(new NetWorkSettings());
             car.setCarName("Car-X");
             car.onLine();
         } catch (JMSException | IOException e) {

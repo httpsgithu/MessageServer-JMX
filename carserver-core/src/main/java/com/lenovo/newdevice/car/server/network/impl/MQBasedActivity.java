@@ -1,14 +1,15 @@
 package com.lenovo.newdevice.car.server.network.impl;
 
 import com.lenovo.newdevice.car.server.network.BrokerDetector;
-import com.lenovo.newdevice.car.server.provider.NetServerSettings;
+import com.lenovo.newdevice.car.server.network.BrokerManager;
+import com.lenovo.newdevice.car.server.provider.NetWorkSettings;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.jms.*;
@@ -24,21 +25,22 @@ class MQBasedActivity {
     private transient Connection connection;
 
     @Getter
-    private Logger logger = LogManager.getLogger(getClass());
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     @Getter
     private
-    NetServerSettings serverSettings;
+    NetWorkSettings serverSettings;
 
-    public MQBasedActivity(NetServerSettings serverSettings) {
-        this.serverSettings = serverSettings;
-    }
+    @Autowired
+    @Getter
+    private
+    BrokerManager brokerManager;
 
-    protected Session createSession(String clientID) throws JMSException {
+    Session createSession(String clientID) throws JMSException {
 
-        if (!BrokerDetector.checkBrokerService(getServerSettings().getBrokerUrl())) {
-            throw new JMSException("Broker not available");
+        if (!BrokerDetector.checkBrokerService(brokerManager.getPublishableConnectURI("openwire").toString())) {
+            throw new JMSException("Broker not available@" + getServerSettings().getBrokerUrl());
         }
 
         ConnectionFactory factory = new ActiveMQConnectionFactory(serverSettings.getBrokerUrl());
@@ -53,7 +55,7 @@ class MQBasedActivity {
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
-    protected MessageConsumer createConsumer(@NonNull Session session, @NonNull String topic, @NonNull MessageListener listener)
+    MessageConsumer createConsumer(@NonNull Session session, @NonNull String topic, @NonNull MessageListener listener)
             throws JMSException {
         logger.info("creating Topic:" + topic);
         Destination destination = session.createTopic(topic);
@@ -62,13 +64,13 @@ class MQBasedActivity {
         return consumer;
     }
 
-    protected MessageProducer createProducer(@NonNull Session session, @NonNull String topic) throws JMSException {
+    MessageProducer createProducer(@NonNull Session session, @NonNull String topic) throws JMSException {
         logger.info("creating Topic:" + topic);
         Destination destination = session.createTopic(topic);
         return session.createProducer(destination);
     }
 
-    protected void closeConnection() {
+    void closeConnection() {
         logger.info("closing connection.");
         if (connection != null) {
             try {
@@ -80,7 +82,7 @@ class MQBasedActivity {
         }
     }
 
-    protected void close(Session session) {
+    void close(Session session) {
         if (session != null) {
             try {
                 session.close();
@@ -90,7 +92,7 @@ class MQBasedActivity {
         }
     }
 
-    protected void close(MessageProducer producer) {
+    void close(MessageProducer producer) {
         if (producer != null) {
             try {
                 producer.close();
@@ -100,7 +102,7 @@ class MQBasedActivity {
         }
     }
 
-    protected void close(MessageConsumer consumer) {
+    void close(MessageConsumer consumer) {
         if (consumer != null) {
             try {
                 consumer.close();

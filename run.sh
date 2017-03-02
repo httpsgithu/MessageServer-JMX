@@ -1,2 +1,2 @@
-mvn install
-cd carserver-core; ./scripts/build.sh; ./scripts/launch.sh
+mvn install -DskipTests
+cd carserver-core; ./build.sh; cd target; ./jcmd.sh

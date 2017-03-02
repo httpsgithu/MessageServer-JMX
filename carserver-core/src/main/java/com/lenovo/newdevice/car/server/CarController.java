@@ -2,10 +2,16 @@ package com.lenovo.newdevice.car.server;
 
 import com.lenovo.newdevice.car.server.application.Component;
 import com.lenovo.newdevice.car.server.application.Context;
+import com.lenovo.newdevice.car.server.utils.ThreadUtils;
 import lombok.Getter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -16,22 +22,25 @@ public class CarController implements Component {
 
     private ServiceKeeper mKeeper;
 
+    private Logger mLogger;
+
     public CarController() {
         Runtime.getRuntime().addShutdownHook(new ShutdownHook());
-        ApplicationContext springCtx = new ClassPathXmlApplicationContext("file:configs/appConfiguration.xml");
+        ApplicationContext springCtx = new ClassPathXmlApplicationContext("classpath:appConfiguration.xml");
         this.context = (Context) springCtx.getBean("context");
+        this.mLogger = LoggerFactory.getLogger(getClass());
     }
 
     @Override
     public boolean onStart() {
 
-        Component[] components = new Component[]{
-                context.getClientManager(),
-                context.getMessageBroker(),
-                context.getBroadcaster()
-        };
+        List<Component> all = new ArrayList<>();
+        all.add(context.getBrokerManager());
+        all.add(context.getClientManager());
+        all.add(context.getMessageSender());
+        all.add(context.getBroadcaster());
 
-        mKeeper = new ServiceKeeper(components);
+        mKeeper = new ServiceKeeper(all);
 
         return mKeeper.startKeep();
     }
@@ -50,28 +59,33 @@ public class CarController implements Component {
     }
 
     private static class LifeCycleCaller {
+
+        static Logger sLogger = LoggerFactory.getLogger(LifeCycleCaller.class);
+
         static boolean callStart(Component component) {
+            sLogger.info("Starting:" + component.componentName());
             return component.onStart();
         }
 
         static void callShutdown(Component component) {
+            sLogger.info("Shutting down:" + component.componentName());
             component.onDestroy();
         }
     }
 
     private class ServiceKeeper {
 
-        CountDownLatch latch = null;
+        CountDownLatch mLatch = null;
 
-        Component[] components;
+        List<Component> mComponents;
 
-        ServiceKeeper(Component[] components) {
-            this.components = components;
+        ServiceKeeper(List<Component> components) {
+            this.mComponents = components;
         }
 
         boolean startKeep() {
             AtomicBoolean success = new AtomicBoolean(true);
-            for (Component c : components) {
+            for (Component c : mComponents) {
                 ThreadUtils.createStarted(() -> {
                     boolean ok = LifeCycleCaller.callStart(c);
                     if (!ok) success.set(false);
@@ -80,27 +94,29 @@ public class CarController implements Component {
             }
 
             if (success.get()) {
-                waitForShutdown(components.length);
+                waitForShutdown(mComponents.size());
             }
             return success.get();
         }
 
         void onComponentStartResult(Component component, boolean res) {
-            context.defaultLogger().info("onComponentStartResult:" + component.componentName() + "-" + res);
+            mLogger.info("onComponentStartResult:" + component.componentName() + "-" + res);
         }
 
         void shutdown() {
-            for (Component s : components) {
+            Collections.reverse(mComponents);
+            for (Component s : mComponents) {
                 LifeCycleCaller.callShutdown(s);
                 shutdownOnce();
             }
         }
 
         void waitForShutdown(int count) {
-            latch = new CountDownLatch(count);
+            mLogger.info("Components count:" + count);
+            mLatch = new CountDownLatch(count);
             while (true) {
                 try {
-                    latch.await();
+                    mLatch.await();
                     break;
                 } catch (InterruptedException ignored) {
 
@@ -109,7 +125,7 @@ public class CarController implements Component {
         }
 
         void shutdownOnce() {
-            latch.countDown();
+            mLatch.countDown();
         }
     }
 }

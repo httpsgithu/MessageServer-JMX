@@ -1,7 +1,6 @@
 package com.lenovo.newdevice.car.server.network.impl;
 
 import com.lenovo.newdevice.car.server.network.Broadcaster;
-import com.lenovo.newdevice.car.server.provider.NetServerSettings;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -22,17 +21,13 @@ public class BroadcasterImpl extends MQBasedActivity implements Broadcaster {
 
     private Session session;
 
-    public BroadcasterImpl(NetServerSettings serverSettings) {
-        super(serverSettings);
-    }
-
     @Override
     public boolean onStart() {
         try {
             session = createSession(getServerSettings().getMessageBroadcasterId());
             producer = createProducer(session, getServerSettings().getMessageBoadcastTopic());
         } catch (JMSException e) {
-            getLogger().error(e);
+            getLogger().error("onStart", e);
             return false;
         }
 
@@ -52,7 +47,7 @@ public class BroadcasterImpl extends MQBasedActivity implements Broadcaster {
             getProducer().send(message);
             return true;
         } catch (JMSException e) {
-            getLogger().error(e);
+            getLogger().error("onStart", e);
             return false;
         }
     }

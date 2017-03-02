@@ -1,25 +1,25 @@
 package com.lenovo.newdevice.car.server.network.impl;
 
-import com.lenovo.newdevice.car.server.provider.NetServerSettings;
+import com.lenovo.newdevice.car.server.provider.NetWorkSettings;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 import java.io.IOException;
 
-import static com.lenovo.newdevice.car.server.network.impl.TestUtils.println;
+import static com.lenovo.newdevice.car.server.TestUtils.println;
 
 /**
  * Created @2017/2/23 15:01
  */
 public class Consumer {
 
-    private NetServerSettings serverSettings;
+    private NetWorkSettings serverSettings;
     private transient Connection connection;
     private transient Session session;
 
     public Consumer(String id) throws JMSException {
         try {
-            serverSettings = new NetServerSettings();
+            serverSettings = new NetWorkSettings();
             ConnectionFactory factory = new ActiveMQConnectionFactory(serverSettings.getBrokerUrl());
             connection = factory.createConnection();
             connection.setClientID(id);

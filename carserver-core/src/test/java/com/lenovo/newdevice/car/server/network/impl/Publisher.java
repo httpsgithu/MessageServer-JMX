@@ -1,7 +1,7 @@
 package com.lenovo.newdevice.car.server.network.impl;
 
 import com.lenovo.newdevice.car.server.message.MessageHelper;
-import com.lenovo.newdevice.car.server.provider.NetServerSettings;
+import com.lenovo.newdevice.car.server.provider.NetWorkSettings;
 import com.lenovo.newdevice.carserver.api.model.Car;
 import com.lenovo.newdevice.carserver.api.model.PTPMessageContainer;
 import org.apache.activemq.ActiveMQConnectionFactory;
@@ -19,11 +19,11 @@ public class Publisher {
     protected transient Session session;
     protected transient MessageProducer producer;
 
-    private NetServerSettings serverSettings;
+    private NetWorkSettings serverSettings;
 
     public Publisher() throws JMSException {
         try {
-            serverSettings = new NetServerSettings();
+            serverSettings = new NetWorkSettings();
             factory = new ActiveMQConnectionFactory(serverSettings.getBrokerUrl());
             connection = factory.createConnection();
             try {

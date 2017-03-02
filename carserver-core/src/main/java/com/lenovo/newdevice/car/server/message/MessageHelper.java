@@ -2,8 +2,8 @@ package com.lenovo.newdevice.car.server.message;
 
 import com.lenovo.newdevice.carserver.api.model.BytesSerializable;
 import lombok.NonNull;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jms.BytesMessage;
 import javax.jms.JMSException;
@@ -14,7 +14,7 @@ import javax.jms.Session;
  */
 public class MessageHelper {
 
-    private static Logger sLogger = LogManager.getLogger(MessageHelper.class);
+    private static Logger sLogger = LoggerFactory.getLogger(MessageHelper.class);
 
     public static String extractContentString(@NonNull BytesMessage bytesMessage) {
         try {
@@ -22,7 +22,7 @@ public class MessageHelper {
             bytesMessage.readBytes(data);
             return new String(data);
         } catch (JMSException e) {
-            sLogger.error(e);
+            sLogger.error("extractContentString", e);
         }
         return null;
     }
@@ -33,7 +33,7 @@ public class MessageHelper {
             bytesMessage.writeBytes(serializable.toBytes());
             return bytesMessage;
         } catch (JMSException e) {
-            sLogger.error(e);
+            sLogger.error("createByteMessage", e);
         }
         return null;
     }
@@ -45,7 +45,7 @@ public class MessageHelper {
             out.writeBytes(serializable.toBytes());
             return out;
         } catch (JMSException e) {
-            sLogger.error(e);
+            sLogger.error("constructByteMessage", e);
         }
         return null;
     }
@@ -56,7 +56,7 @@ public class MessageHelper {
             out.writeBytes(src.getBytes());
             return out;
         } catch (JMSException e) {
-            sLogger.error(e);
+            sLogger.error("constructByteMessage", e);
         }
         return null;
     }
