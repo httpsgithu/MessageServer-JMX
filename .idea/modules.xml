@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/car-server.iml" filepath="$PROJECT_DIR$/.idea/car-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/carserver-api/car-server-api.iml" filepath="$PROJECT_DIR$/carserver-api/car-server-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/carserver-api-android/car-server-api-android.iml" filepath="$PROJECT_DIR$/carserver-api-android/car-server-api-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/carserver-core/car-server-core.iml" filepath="$PROJECT_DIR$/carserver-core/car-server-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/car-server-parent.iml" filepath="$PROJECT_DIR$/car-server-parent.iml" />
     </modules>
   </component>
 </project>

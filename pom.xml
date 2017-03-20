@@ -18,6 +18,7 @@
     <modules>
         <module>carserver-core</module>
         <module>carserver-api</module>
+        <module>carserver-api-android</module>
     </modules>
 
     <dependencies>

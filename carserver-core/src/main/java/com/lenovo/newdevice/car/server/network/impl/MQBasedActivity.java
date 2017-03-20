@@ -7,12 +7,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.transport.TransportListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.jms.*;
+import java.io.IOException;
 
 /**
  * Created @2017/2/28 13:01
@@ -45,6 +48,28 @@ class MQBasedActivity {
 
         ConnectionFactory factory = new ActiveMQConnectionFactory(serverSettings.getBrokerUrl());
         connection = factory.createConnection();
+        ActiveMQConnection mqConnection = (ActiveMQConnection) connection;
+        mqConnection.addTransportListener(new TransportListener() {
+            @Override
+            public void onCommand(Object o) {
+
+            }
+
+            @Override
+            public void onException(IOException e) {
+
+            }
+
+            @Override
+            public void transportInterupted() {
+
+            }
+
+            @Override
+            public void transportResumed() {
+
+            }
+        });
 
         logger.info("clientID:" + clientID);
         if (clientID != null) {

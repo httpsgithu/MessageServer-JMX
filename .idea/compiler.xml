@@ -7,13 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="car-server-api" />
+        <module name="car-server-api-android" />
         <module name="car-server-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="car-server" target="1.5" />
       <module name="car-server-api" target="1.8" />
+      <module name="car-server-api-android" target="1.8" />
       <module name="car-server-core" target="1.8" />
-      <module name="car-server-parent" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

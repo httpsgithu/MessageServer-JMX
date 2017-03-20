@@ -2,6 +2,8 @@ package com.lenovo.newdevice.car.server.network.impl;
 
 import com.lenovo.newdevice.car.server.network.BrokerManager;
 import lombok.NonNull;
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.broker.BrokerContext;
 import org.apache.activemq.broker.BrokerFactory;
 import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.broker.TransportConnector;
@@ -9,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.URI;
+import java.util.Map;
+import java.util.function.Consumer;
 
 /**
  * Created @2017/3/2 10:07
@@ -42,8 +46,6 @@ public class BrokerManagerImpl implements BrokerManager {
     @Override
     public void onDestroy() {
         try {
-
-
             mBrokerService.stop();
             mBrokerService.waitUntilStopped();
         } catch (Exception e) {
@@ -114,5 +116,12 @@ public class BrokerManagerImpl implements BrokerManager {
         sb.append("---BROKER MANSGER DUMP END---");
 
         gLogger.info(sb.toString());
+
+        BrokerContext brokerContext = mBrokerService.getBrokerContext();
+
+        gLogger.info("ctx:{}", brokerContext);
+
+
+
     }
 }
